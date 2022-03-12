@@ -1,0 +1,36 @@
+@font-face {
+    src: url('Helvetica-Roman.ttf');
+}
+.top {
+    -fx-padding: 50 40;
+    -fx-font-size: 40;
+    -fx-text-background-color: #FFFFFF;
+    -fx-font-family: "Helvetica LT Std";
+}
+
+.center {
+    -fx-spacing: 15;
+    -fx-padding: 50 80;
+    -fx-alignment: bottom-right;
+    -fx-text-background-color: #FFFFFF;
+    -fx-font-family: "Helvetica LT Std";
+}
+
+.centerBoxs {
+    -fx-alignment: bottom-right;
+    -fx-spacing: 10;
+}
+
+.FoldersTitles {
+    -fx-font-size: 30;
+    -fx-padding:0 0;
+}
+
+.FolderButtons {
+    -fx-font-size: 20;
+    -fx-padding:5 0;
+}
+
+.BottomButtons {
+    -fx-font-size: 20;
+}

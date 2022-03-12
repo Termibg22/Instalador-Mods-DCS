@@ -1,0 +1,9 @@
+@font-face {
+    src: url('Helvetica-Roman.ttf');
+}
+.top {
+    -fx-padding: 160 120;
+    -fx-font-size: 55;
+    -fx-text-background-color: #131F3B;
+    -fx-font-family: "Helvetica LT Std";
+}

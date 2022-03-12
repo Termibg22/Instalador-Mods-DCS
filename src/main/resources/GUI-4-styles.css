@@ -1,0 +1,12 @@
+@font-face {
+    src: url('Helvetica-Roman.ttf');
+}
+.top {
+    -fx-padding: 150 110;
+    -fx-font-size: 50;
+    -fx-text-background-color: #263D73;
+    -fx-font-family: "Helvetica LT Std";
+}
+.BottomButtons{
+    -fx-font-size: 20;
+}
