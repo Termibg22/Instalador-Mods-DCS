@@ -22,11 +22,13 @@ public class GUI extends Application {
     private String InstallationFolder = "";
     private String SavedGamesFolder = "";
     private String userDir = System.getProperty("user.dir");
-    private CheckBox allmods;
     private CheckBox migotomod;
     private CheckBox smokemod;
     private CheckBox simplexmod;
     private CheckBox fsrmod;
+    private CheckBox sufa;
+    private CheckBox desdemicabina;
+    private CheckBox su30;
     private CheckBox allskins;
     public static String error = "";
 
@@ -209,76 +211,64 @@ public class GUI extends Application {
         HBox skinsBox = new HBox();
         skinsBox.getStyleClass().add("skinsBox");
 
+        VBox skinsListBox = new VBox();
+        skinsListBox.getStyleClass().add("modsList");
 
-        Label ModsInstallationTitle = new Label("Instalar Mods");
+
+        Label ModsInstallationTitle = new Label("Instalar Mods:");
         ModsInstallationTitle.setTooltip(
                 new Tooltip("Mejoran la calidad visual y el rendimiento")
         );
         ModsInstallationTitle.getStyleClass().add("ModsTitle");
 
-        allmods = new CheckBox();
-        allmods.setTooltip(
-                new Tooltip("Mejoran la calidad visual y el rendimiento")
-        );
-
         Label migototext = new Label("3DMigoto");
         migotomod = new CheckBox("3DMigoto");
         migotomod.setTooltip(
-                new Tooltip("Mejora la calidad de las etiquetas en la cabina aplicando filtros de escalado")
+                new Tooltip("Mejora la calidad de las etiquetas en la cabina aplicando filtros de escalado.")
         );
         smokemod = new CheckBox("Better Smoke");
         smokemod.setTooltip(
-                new Tooltip("Los humos son mas realistas y grandes")
+                new Tooltip("Los humos son mas realistas y grandes.")
         );
         simplexmod = new CheckBox("Simplex");
         simplexmod.setTooltip(
-                new Tooltip("Mejora el rendimiento modificando los shaders")
+                new Tooltip("Mejora el rendimiento modificando los shaders.")
         );
         fsrmod = new CheckBox("FSR");
         fsrmod.setTooltip(
-                new Tooltip("Mejora el rendimiento renderizando el juego a menor resolución y luego reescalándolo")
+                new Tooltip("Mejora el rendimiento. Solo VR.")
+        );
+        sufa = new CheckBox("F-16I Sufa");
+        sufa.setTooltip(
+                new Tooltip("Añade el F-16I Sufa junto con la bomba Spice 2000.")
+        );
+        su30 = new CheckBox("Su-30");
+        su30.setTooltip(
+                new Tooltip("Añade el Su-30.")
+        );
+        desdemicabina = new CheckBox("Desde mi cabina");
+        desdemicabina.setTooltip(
+                new Tooltip("Añade el poortaviones L61 y diferentes fragatas.")
         );
 
-        allmods.setOnAction((EventHandler<javafx.event.ActionEvent>) event -> {
-            if(allmods.isSelected()){
-                migotomod.setSelected(true);
-                migotomod.setDisable(true);
-                smokemod.setSelected(true);
-                smokemod.setDisable(true);
-                simplexmod.setSelected(true);
-                simplexmod.setDisable(true);
-                fsrmod.setSelected(true);
-                fsrmod.setDisable(true);
-            }
-            else{
-                migotomod.setSelected(false);
-                migotomod.setDisable(false);
-                smokemod.setSelected(false);
-                smokemod.setDisable(false);
-                simplexmod.setSelected(false);
-                simplexmod.setDisable(false);
-                fsrmod.setSelected(false);
-                fsrmod.setDisable(false);
-            }
-        });
-
-        Label SkinsInstallationTitle = new Label("Instalar Skins");
+        Label SkinsInstallationTitle = new Label("Instalar Skins:");
         SkinsInstallationTitle.setTooltip(
                 new Tooltip("Añade diferentes aspectos de pintura")
         );
         SkinsInstallationTitle.getStyleClass().add("SkinsTitle");
 
-        allskins = new CheckBox();
+        allskins = new CheckBox("Todas");
         allskins.setTooltip(
                 new Tooltip("Añade diferentes aspectos de pintura")
         );
 
-        centerBox.getChildren().addAll(modsBox, modsListBox, skinsBox);
+        centerBox.getChildren().addAll(modsBox, modsListBox, skinsBox, skinsListBox);
 
-        modsListBox.getChildren().addAll(migotomod, smokemod, simplexmod, fsrmod);
+        modsListBox.getChildren().addAll(migotomod, smokemod, simplexmod, fsrmod, sufa, su30, desdemicabina);
 
-        modsBox.getChildren().addAll(ModsInstallationTitle, allmods);
-        skinsBox.getChildren().addAll(SkinsInstallationTitle, allskins);
+        modsBox.getChildren().addAll(ModsInstallationTitle);
+        skinsBox.getChildren().addAll(SkinsInstallationTitle);
+        skinsListBox.getChildren().addAll(allskins);
 
 
 
@@ -308,7 +298,7 @@ public class GUI extends Application {
         NextButton.getStyleClass().add("BottomButtons");
         NextButton.setOnAction(event -> {
 
-            if(!allskins.isSelected() && !migotomod.isSelected() && !smokemod.isSelected() && !simplexmod.isSelected() && !fsrmod.isSelected()){
+            if(!allskins.isSelected() && !migotomod.isSelected() && !smokemod.isSelected() && !simplexmod.isSelected() && !fsrmod.isSelected() && !sufa.isSelected() && !su30.isSelected() && !desdemicabina.isSelected()){
                 Alert alert = new Alert(Alert.AlertType.WARNING, null, ButtonType.OK);
                 alert.getDialogPane().setHeaderText("No ha seleccionado nada que instalar");
                 alert.showAndWait();
@@ -473,6 +463,19 @@ public class GUI extends Application {
             if(!Utils.unzipFile(path + "/vrperfkit.zip", InstallationFolder))
                 return false;
         }
+        if(sufa.isSelected()){
+            if(!Utils.unzipFile(path + "/F16Sufa.zip", InstallationFolder))
+                return false;
+        }
+        if(su30.isSelected()){
+            if(!Utils.unzipFile(path + "/Su30.zip", SavedGamesFolder))
+                return false;
+        }
+        if(desdemicabina.isSelected()){
+            if(!Utils.unzipFile(path + "/DesdeMiCabina.zip", SavedGamesFolder))
+                return false;
+        }
+
         return true;
     }
 

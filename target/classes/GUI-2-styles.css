@@ -8,27 +8,22 @@
     -fx-font-family: "Helvetica LT Std";
 }
 .center2 {
-    -fx-font-size: 23;
-    -fx-spacing: 20;
-    -fx-padding: 30 250;
+    -fx-font-size: 20;
+    -fx-spacing: 12;
+    -fx-padding: 10 250;
     -fx-alignment: center-right;
     -fx-text-background-color: #FFFFFF;
     -fx-font-family: "Helvetica LT Std";
 }
 .modsBox{
-    -fx-spacing: 20;
+    -fx-spacing: 12;
 }
 .modsList{
-    -fx-spacing: 20;
-    -fx-font-size: 23;
+    -fx-spacing: 12;
+    -fx-font-size: 18;
 }
 .skinsBox{
-    -fx-spacing: 20;
-
-}
-.bottom{
-    //-fx-background-color: #FFFFFF;
-    //-fx-opacity: 40%;
+    -fx-spacing: 12;
 }
 .BottomButtons{
     -fx-font-size: 20;
