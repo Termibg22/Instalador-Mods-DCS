@@ -464,12 +464,14 @@ public class GUI extends Application {
                 return false;
         }
         if(sufa.isSelected()){
+            Utils.removeFile(InstallationFolder + "/CoreMods/aircraft/F-16C/Liveries/F-16C_50");
             if(!Utils.unzipFile(path + "/F16Sufa.zip", InstallationFolder))
                 return false;
         }
-        if(su30.isSelected()){
-            if(!Utils.unzipFile(path + "/Su30.zip", SavedGamesFolder))
+        if(su30.isSelected()) {
+            if (!Utils.unzipFile(path + "/Su30.zip", SavedGamesFolder)) {
                 return false;
+            }
         }
         if(desdemicabina.isSelected()){
             if(!Utils.unzipFile(path + "/DesdeMiCabina.zip", SavedGamesFolder))
